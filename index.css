@@ -52,21 +52,19 @@ body {
     padding-top: 20px;
 }
 
-/* Center the modal */
 .modal {
     display: none; 
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Moves it to the exact center */
-    width: 400px; /* Adjust as needed */
+    transform: translate(-50%, -50%); 
+    width: 400px; 
     justify-content: center;
     align-items: center;
     border-radius: 10px;
     padding: 20px;
 }
 
-/* Modal Content */
 .modal-content {
     background-color: #1E1E1E;
     padding: 20px;
@@ -76,7 +74,6 @@ body {
     position: relative;
 }
 
-/* Center input fields */
 #login-form input {
     width: 90%;
     padding: 10px;
@@ -87,7 +84,6 @@ body {
     text-align: center;
 }
 
-/* Login button */
 #loginbutton {
     background: #916a2f;
     padding: 10px;
@@ -101,7 +97,6 @@ body {
     background: darkgoldenrod;
 }
 
-/* Close button */
 .close {
     position: absolute;
     top: 10px;
@@ -217,7 +212,7 @@ body {
 
 .password-container input {
     width: 100%;
-    padding-right: 35px; /* Space for eye icon */
+    padding-right: 35px;
 }
 
 .toggle-password {
@@ -288,7 +283,7 @@ body {
     padding: 12px;
     font-size: 18px;
     font-weight: bold;
-    background-color: #916A2F; /* Button color */
+    background-color: #916A2F;
     border: none;
     color: white;
     border-radius: 8px;
@@ -299,7 +294,7 @@ body {
 }
 
 #signupbutton:hover {
-    background-color: #ad8d5d; /* Lighter shade on hover */
+    background-color: #ad8d5d; 
 }
 
 #signup-form input {

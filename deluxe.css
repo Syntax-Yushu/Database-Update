@@ -1,0 +1,216 @@
+/* General Styles */
+body {
+    background-color: #1c1c1c;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar */
+/* NAVBAR STYLING */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Adjusts spacing between logo and menu */
+    padding: 10px 13px; /* Adjusts navbar padding */
+}
+
+/* NAVBAR MENU */
+.nav-menu {
+    display: flex;
+    gap: 20px; /* Adjusts the space between menu items */
+}
+
+/* NAVBAR MENU LINKS */
+.nav-menu a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    padding: 5px 10px; /* Adjusts clickable area */
+}
+
+
+.logo h1 {
+    font-family: 'Cursive', sans-serif;
+    font-size: 22px;
+    margin: 0;
+    color: white;
+}
+
+.logo p {
+    font-size: 12px;
+    margin: 0;
+    color: #ccc;
+}
+
+.logo a {
+    color: #d4af37;
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.nav-links a:hover {
+    color: #d4af37;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.notification {
+    width: 20px;
+}
+
+.profile {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Section Header */
+.section-header {
+    width: 99%;
+    background-color: #8B6F44;
+    padding:2px;
+    text-align: left;
+    font-size: 13px;
+    font-weight: bold;
+    margin-top: -5px;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 900px;
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+}
+
+/* Content Layout */
+.content {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+.room-image img {
+    width: 250px;
+    border-radius: 10px;
+}
+
+.room-details {
+    flex-grow: 1;
+    padding-left: 20px;
+}
+
+/* Room Information */
+h2 {
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.description {
+    font-size: 14px;
+    color: #bbb;
+}
+
+.capacity {
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #d4af37;
+}
+
+/* Form Fields */
+.input-group {
+    margin: 10px 0;
+}
+
+.input-group label {
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+input, select {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/* Check-in and Check-out */
+.checkin-checkout {
+    display: flex;
+    justify-content: space-between; /* Ensures even spacing */
+    gap: 20px; /* Adjusts spacing between check-in and check-out sections */
+}
+
+.checkin-checkout div {
+    flex: 1; /* Ensures both sections take equal width */
+    display: flex;
+    flex-direction: column;
+}
+
+.time-selection {
+    display: flex;
+    justify-content: space-between; /* Aligns check-in and check-out times */
+    gap: 20px;
+}
+
+.time-selection div {
+    flex: 1; /* Makes both sections equal in width */
+    display: flex;
+    flex-direction: column;
+}
+/* Special Services */
+.special-services {
+    margin: 15px 0;
+}
+
+.note {
+    font-size: 12px;
+    color: #bbb;
+}
+
+/* Total Section */
+.total {
+    margin-top: 20px;
+    background-color: #2b2a2a;
+    padding: 20px;
+    width: 400px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    border: 2px solid #8B6F44;
+}
+
+.amount {
+    font-size: 20px;
+    color: #d4af37;
+}
