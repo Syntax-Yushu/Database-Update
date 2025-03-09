@@ -3,21 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Now</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Booking</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="logo">
-        <a href=""><img src="images/LOGO.png" alt="Hotel Logo"></a>
-    </div>
-    </div>
-    <div class="menu">
-        <table>
-            <tr>
-                <th><a href="#" onclick="closeModals()">HOME</a></th>
-                <th><a href="#" onclick="openModal('Setting')">SETTINGS</a></th>
-                <th><a href="#" onclick="openModal('aboutmodal')">ABOUT US</a></th>
-                <th><a href="#" onclick="openModal('servicesmodal')">SERVICES</a></th>
-                
-            </tr>
-        </table>
+    <header class="navbar">
+        <h1 class="logo">Stay So Hotel</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Settings</a>
+            <a href="#">About Us</a>
+            <a href="#">Services</a>
+            <img src="avatar.png" alt="User Avatar" class="avatar">
+        </nav>
+    </header>
+
+    <div class="rooms-header">ROOMS</div>
+
+    <main class="room-list">
+        <div class="room">
+            <input type="checkbox">
+            <img src="standard-room.jpg" alt="Standard Room">
+            <div class="room-info">
+                <h2>Standard Rooms</h2>
+                <p>A sleek and modern design creates a sense of comfort and style. It includes a king-size bed, a private bathroom, a desk, a small seating area, a TV, an air-conditioning unit, and WiFi.</p>
+                <p class="price">1,000 Pesos/ Per Night</p>
+                <p>Max Capacity: 2 Adults, 2 Children</p>
+                <p>3 rooms available</p>
+            </div>
+        </div>
+
+        <div class="room">
+            <input type="checkbox">
+            <img src="deluxe-room.jpg" alt="Deluxe Room">
+            <div class="room-info">
+                <h2>Deluxe Rooms</h2>
+                <p>Deluxe rooms provide more space and comfort than a standard room, featuring upscale furnishings, a larger bed, premium linens, a well-appointed bathroom, and modern technology.</p>
+                <p class="price">1,500 Pesos/ Per Night</p>
+                <p>Max Capacity: 2 Adults, 2 Children</p>
+                <p>5 rooms available</p>
+            </div>
+        </div>
+
+        <div class="room">
+            <input type="checkbox">
+            <img src="executive-room.jpg" alt="Executive Room">
+            <div class="room-info">
+                <h2>Executive Rooms</h2>
+                <p>Designed for business travelers, offering a spacious layout with a work desk, high-speed WiFi, and premium amenities. It often includes a king-size bed, a seating area, and floor-to-ceiling windows with a business lounge or complimentary breakfast.</p>
+                <p class="price">2,000 Pesos/ Per Night</p>
+                <p>Max Capacity: 2 Adults, 2 Children</p>
+                <p>4 rooms available</p>
+            </div>
+        </div>
+
+        <button class="book-now">Book Now</button>
+    </main>
+</body>
+</html>
