@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hotel Reservation</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="Index.css">
 </head>
 <body>
     <div class="top-bar">
@@ -14,10 +14,10 @@
     <div class="menu">
         <table>
             <tr>
-                <th><a href="#" onclick="closeModals()">HOME</a></th>
+                
                 <th><a href="#" onclick="openModal('aboutmodal')">ABOUT US</a></th>
                 <th><a href="#" onclick="openModal('servicesmodal')">SERVICES</a></th>
-                <th><a href="#" onclick="openModal('loginmodal')">LOGIN/REGISTER</a></th>
+                <th><a href="#" onclick="openModal('loginmodal')">LOGIN</a></th>
             </tr>
         </table>
     </div>
@@ -66,37 +66,107 @@
         </div>
     </div>
     <div id="loginmodal" class="modal">
-        <div class="modal-content">
-        <span class="close" onclick="closeModal('loginmodal')">&times;</span>
-        <h1>Welcome!!</h1>
-        <form id="login-form">
-            <label for="email">Email</label>
-            <input type="text" id="email" name="email" required> 
-            <label for="Password">Password</label>
-            <input type="text" id="password" name="password" required>
-            <a href="#" id="forgot">Forgot Password</a>
-            <button id="loginbutton">LOGIN</button>
-            <p id="continue">or Continue with</p>
-        </form>
+        <div class="modal-content login-box">
+            <span class="close" onclick="closeModal('loginmodal')">&times;</span>
+            <h2>Welcome!!</h2>
+            <form id="login-form">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your Email" required> 
+                
+                <label for="password">Password:</label>
+                <div class="password-container">
+                    <input type="password" id="password" name="password" placeholder="Enter your Password" required>
+                    <span class="toggle-password">👁️</span>
+                </div>
+                
+                <a href="#" class="forgot-password">Forgot Password?</a>
+                <button id="loginbutton">LOGIN</button>
+                
+                <p class="continue-with">Or Continue with...</p>
+                <button class="google-login">
+                    <img src="images/google.png" alt="Google Logo"> Google
+                </button>
+            </form>
+            <p class="signup-link">Don't have an account? <a href="#">Sign Up</a></p>
         </div>
     </div>
+
+    <div id="signupmodal" class="modal">
+        <div class="modal-content login-box">
+            <span class="close" onclick="closeModal('signupmodal')">&times;</span>
+            <h2>Create an Account</h2>
+            <form id="signup-form">
+                <label for="signup-name">Full Name:</label>
+                <input type="text" id="signup-name" name="name" placeholder="Enter your Name" required>
+    
+                <label for="signup-email">Email:</label>
+                <input type="email" id="signup-email" name="email" placeholder="Enter your Email" required>
+    
+                <label for="signup-password">Password:</label>
+                <div class="password-container">
+                    <input type="password" id="signup-password" name="password" placeholder="Enter your Password" required>
+                    <span class="toggle-password" onclick="togglePassword('signup-password')">👁️</span>
+                </div>
+    
+                <label for="confirm-password">Confirm Password:</label>
+                <div class="password-container">
+                    <input type="password" id="confirm-password" name="confirm_password" placeholder="Confirm your Password" required>
+                    <span class="toggle-password" onclick="togglePassword('confirm-password')">👁️</span>
+                </div>
+    
+                <p id="password-error" style="color: red; display: none;">Passwords do not match!</p>
+    
+                <button type="submit" id="signupbutton">SIGN UP</button>
+            </form>
+            
+            <p class="continue-with">Or Sign up with...</p>
+            <button class="google-login">
+                <img src="images/google.png" alt="Google Logo"> Google
+            </button>
+    
+            <p class="signup-link">Already have an account? <a href="#" onclick="switchToLogin()">Login</a></p>
+        </div>
+    </div>
+    
+    
     <script>
-        function openModal(id) {
-            document.getElementById(id).style.display="block";
-        }
+ function openModal(id) {
+    let modals = document.getElementsByClassName("modal");
+    for (let modal of modals) {
+        modal.style.display = "none";
+    }
+    document.getElementById(id).style.display = "flex";
+}
 
-        function closeModal(id) {
-            document.getElementById(id).style.display="none"
-        }
+function closeModal(id) {
+    document.getElementById(id).style.display = "none";
+}
 
-        window.onclick= function(event) {
-            let modals = document.getElementsByClassName("modal");
-            for (let modal of modals) {
-                if (event.target == modal) {
-                    modal.style.display="none"
-                }
-            }
-        } 
+document.querySelector(".signup-link a").addEventListener("click", function(event) {
+    event.preventDefault();
+    closeModal("loginmodal");
+    openModal("signupmodal");
+});
+
+function switchToLogin() {
+    closeModal("signupmodal");
+    openModal("loginmodal");
+}
+
+window.onclick = function(event) {
+    let modals = document.getElementsByClassName("modal");
+    for (let modal of modals) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+};
+
+
+document.getElementById("booknow").addEventListener("click", function () {
+    openModal("loginmodal");
+});
+
     </script>
 </body>
 <footer>
