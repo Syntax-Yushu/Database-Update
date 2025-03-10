@@ -45,7 +45,7 @@ body {
 }
 
 .logo a {
-    color: #d4af37;
+    color: #ccc;
     text-decoration: none;
 }
 
@@ -76,7 +76,8 @@ body {
 }
 
 .notification {
-    width: 20px;
+    width: 35px;
+    height: 35px;
 }
 
 .profile {
@@ -87,15 +88,14 @@ body {
 }
 
 /* Section Header */
-.section-header {
-    width: 99%;
-    background-color: #8B6F44;
-    padding: 1px;
-    text-align: left;
-    font-size: 13px;
-    font-weight: bold;
-    margin-top: -10px;
+.section-header h2 {
+    font-size: 16px;
+    font-weight: normal;  
+    background-color: #916A2F;
+    margin: 0;
+    padding: 5px 10px;
 }
+
 
 /* Container */
 .container {
