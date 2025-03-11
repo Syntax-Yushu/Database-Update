@@ -1,4 +1,3 @@
-/* General Styles */
 body {
     background-color: #1c1c1c;
     color: white;
@@ -7,27 +6,23 @@ body {
     padding: 0;
 }
 
-/* Navbar */
-/* NAVBAR STYLING */
 .navbar {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Adjusts spacing between logo and menu */
-    padding: 10px 13px; /* Adjusts navbar padding */
+    justify-content: space-between;
+    padding: 10px 13px;
 }
 
-/* NAVBAR MENU */
 .nav-menu {
     display: flex;
-    gap: 20px; /* Adjusts the space between menu items */
+    gap: 20px; 
 }
 
-/* NAVBAR MENU LINKS */
 .nav-menu a {
     text-decoration: none;
     color: white;
     font-size: 16px;
-    padding: 5px 10px; /* Adjusts clickable area */
+    padding: 5px 10px; 
 }
 
 
@@ -87,7 +82,6 @@ body {
     object-fit: cover;
 }
 
-/* Section Header */
 .section-header h2 {
     font-size: 16px;
     font-weight: normal;  
@@ -96,7 +90,6 @@ body {
     padding: 5px 10px;
 }
 
-/* Container */
 .container {
     width: 90%;
     max-width: 900px;
@@ -106,7 +99,6 @@ body {
     margin: 20px auto;
 }
 
-/* Content Layout */
 .content {
     display: flex;
     align-items: center;
@@ -123,7 +115,6 @@ body {
     padding-left: 20px;
 }
 
-/* Room Information */
 h2 {
     font-size: 22px;
     margin-bottom: 5px;
@@ -145,7 +136,6 @@ h2 {
     color: #d4af37;
 }
 
-/* Form Fields */
 .input-group {
     margin: 10px 0;
 }
@@ -163,31 +153,29 @@ input, select {
     border-radius: 5px;
 }
 
-/* Check-in and Check-out */
 .checkin-checkout {
     display: flex;
-    justify-content: space-between; /* Ensures even spacing */
-    gap: 20px; /* Adjusts spacing between check-in and check-out sections */
+    justify-content: space-between; 
+    gap: 20px; 
 }
 
 .checkin-checkout div {
-    flex: 1; /* Ensures both sections take equal width */
+    flex: 1; 
     display: flex;
     flex-direction: column;
 }
 
 .time-selection {
     display: flex;
-    justify-content: space-between; /* Aligns check-in and check-out times */
+    justify-content: space-between; 
     gap: 20px;
 }
 
 .time-selection div {
-    flex: 1; /* Makes both sections equal in width */
+    flex: 1; 
     display: flex;
     flex-direction: column;
 }
-/* Special Services */
 .special-services {
     margin: 15px 0;
 }
@@ -197,7 +185,6 @@ input, select {
     color: #bbb;
 }
 
-/* Total Section */
 .total {
     margin-top: 20px;
     background-color: #2b2a2a;

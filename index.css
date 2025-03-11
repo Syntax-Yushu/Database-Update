@@ -29,10 +29,10 @@ body {
 
 .menu {
     display: flex;
-    justify-content: right; /* Centers horizontally */
-    align-items: center; /* Centers vertically (if needed) */
+    justify-content: right;
+    align-items: center; 
     padding-top: 20px;
-    margin: 0 auto; /* Removes unnecessary margins */
+    margin: 0 auto; 
 }
 
 .menu a {
@@ -151,20 +151,20 @@ body {
 
 .pic {
     display: flex;
-    justify-content: center;  /* Centers the images horizontally */
-    align-items: center;       /* Aligns them properly */
-    gap: 20px;                 /* Space between images */
-    flex-wrap: wrap;           /* Allows images to adjust on smaller screens */
+    justify-content: center;  
+    align-items: center;       
+    gap: 20px;                
+    flex-wrap: wrap;          
     padding-top: 90px;
-    padding-left: 0;           /* Remove left padding */
+    padding-left: 0;          
 }
 
 .pic img {
     width: 340px;
     height: 300px;
-    padding: 15px;             /* Make padding uniform */
-    max-width: 100%;           /* Prevents overflow */
-    object-fit: cover;         /* Ensures images look good */
+    padding: 15px;             
+    max-width: 100%;           
+    object-fit: cover;         
 }
 
 

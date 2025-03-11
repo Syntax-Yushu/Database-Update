@@ -162,55 +162,48 @@ window.onclick = function(event) {
     }
 };
 
-
 document.getElementById("booknow").addEventListener("click", function () {
     openModal("loginmodal");
 });
 
-/// Function to check if a user is logged in
 function isUserLoggedIn() {
     return localStorage.getItem("isLoggedIn") === "true";
 }
 
-// Function to get the role of the logged-in user
 function getUserRole() {
-    return localStorage.getItem("userRole"); // "admin" or "user"
+    return localStorage.getItem("userRole"); 
 }
 
-// Handle "Book Now" button click
 document.getElementById("booknow").addEventListener("click", function () {
-           openModal("loginmodal"); // Open login modal
+           openModal("loginmodal"); 
     }
 );
 
-// Handle Login button click
 document.getElementById("loginbutton").addEventListener("click", function(event) {
-    event.preventDefault(); // Prevent form submission
+    event.preventDefault(); 
 
     let email = document.getElementById("email").value.trim();
     let password = document.getElementById("password").value.trim();
     
-    // Simulated authentication check (Replace with real authentication logic)
     if (email === "admin@gmail.com" && password === "admin123") {
         alert("Admin Login successful!");
         localStorage.setItem("isLoggedIn", "true");
-        localStorage.setItem("userRole", "admin"); // Store role
+        localStorage.setItem("userRole", "admin"); 
         closeModal("loginmodal");
-        window.location.href = "dashboard.html"; // Redirect admin to dashboard
+        window.location.href = "dashboard.html"; 
 
     } else if (email === "user@gmail.com" && password === "user123") {
         alert("User Login successful!");
         localStorage.setItem("isLoggedIn", "true");
-        localStorage.setItem("userRole", "user"); // Store role
+        localStorage.setItem("userRole", "user");
         closeModal("loginmodal");
         window.location.href = "booknow.html"; 
 
-        // Check if they clicked "Book Now" before logging in
         if (sessionStorage.getItem("redirectToBookNow") === "true") {
             sessionStorage.removeItem("redirectToBookNow");
-            window.location.href = "booknow.html"; // Redirect user to book now page
+            window.location.href = "booknow.html"; 
         } else {
-            window.location.href = "booknow.html"; // Default redirect for users
+            window.location.href = "booknow.html"; 
         }
     } else {
         alert("Invalid email or password. Please try again.");
