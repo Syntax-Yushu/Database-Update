@@ -8,78 +8,38 @@ body {
 
 .navbar {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding: 10px 13px;
+    align-items: center;
+    padding: 15px 20px;
+    background: #151414;
 }
-
-.nav-menu {
-    display: flex;
-    gap: 20px; 
+.logo {
+    font-style: italic;
+    font-size: 24px;
 }
-
-.nav-menu a {
-    text-decoration: none;
-    color: white;
-    font-size: 16px;
-    padding: 5px 10px; 
-}
-
-
-.logo h1 {
-    font-family: 'Cursive', sans-serif;
-    font-size: 22px;
-    margin: 0;
-    color: white;
-}
-
-.logo p {
-    font-size: 12px;
-    margin: 0;
-    color: #ccc;
-}
-
-.logo a {
-    color: #ccc;
-    text-decoration: none;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-.nav-links li {
-    display: inline;
-}
-
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-}
-
-.nav-links a:hover {
-    color: #d4af37;
-}
-
-.nav-right {
+nav {
     display: flex;
     align-items: center;
-    gap: 15px;
+}
+nav a {
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
 }
 
-    .notification {
-        width: 35px;
-        height: 35px;
-    }
-
-.profile {
+nav a:hover {
+    text-decoration: underline;
+}
+.icon {
+    width: 25px;
+    height: 25px;
+    margin-left: 10px;
+}
+.avatar {
     width: 35px;
     height: 35px;
     border-radius: 50%;
-    object-fit: cover;
+    margin-left: 10px;
 }
 
 .section-header h2 {

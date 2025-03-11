@@ -26,6 +26,10 @@
         color: white;
         text-decoration: none;
     }
+
+    nav a:hover {
+        text-decoration: underline;
+    }
     .icon {
         width: 25px;
         height: 25px;

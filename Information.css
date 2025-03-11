@@ -1,0 +1,202 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #111;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    padding: 15px 50px;
+}
+
+/* Reservation Details */
+.reservation-details {
+    width: 80%;
+    margin: auto;
+    background-color: #222;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.section-header h2 {
+    font-size: 16px;
+    font-weight: normal;  
+    background-color: #916A2F; 
+    margin: 0;
+    padding: 5px 10px;
+}
+
+/* Form Sections */
+.form-section {
+    background-color: #222;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 5px;
+}
+
+/* Form Layout */
+.form-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+/* Individual Fields */
+.field {
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+}
+
+.field label {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.field input, .field select {
+    padding: 8px;
+    border: 1px solid #666;
+    border-radius: 4px;
+    background-color: #333;
+    color: white;
+}
+
+/* Small Fields for Year and Month */
+.small-fields {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.small-field {
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    margin-left: 15px;
+}
+
+.button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.confirm {
+    background-color: #916A2F;
+    color: white;
+}
+
+.confirm:hover {
+    background-color: #DAAF6F;
+}
+
+.advanced {
+    background-color: #916A2F;
+    color: white;
+}
+
+.advanced:hover {
+    background-color: #DAAF6F;
+}
+/* Terms & Conditions */
+.terms {
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+    font-size: 14px;
+}
+
+.terms input {
+    margin-right: 10px;
+}
+
+.terms a {
+    color: white;
+    text-decoration: none;
+}
+
+.terms a:hover {
+    text-decoration: underline;
+    color: white;
+}
+
+.book-now {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.book-now button {
+    background-color: #916A2F;
+    color: white;
+    padding: 20px 40px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 700px;
+    margin-top: 50px;
+}
+
+.book-now button:hover{
+    background-color: #DAAF6F;
+
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: #151414;
+}
+.logo {
+    font-style: italic;
+    font-size: 24px;
+}
+nav {
+    display: flex;
+    align-items: center;
+}
+nav a {
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+.icon {
+    width: 25px;
+    height: 25px;
+    margin-left: 10px;
+}
+.avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+.optional{
+    font-size: 12px;
+    color: #484848;
+
+}
