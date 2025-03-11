@@ -28,10 +28,11 @@ body {
 }
 
 .menu {
-    
+    display: flex;
+    justify-content: right; /* Centers horizontally */
+    align-items: center; /* Centers vertically (if needed) */
     padding-top: 20px;
-    margin-left: 850px;
-    margin-right: 50px;
+    margin: 0 auto; /* Removes unnecessary margins */
 }
 
 .menu a {
@@ -149,6 +150,25 @@ body {
 }
 
 .pic {
+    display: flex;
+    justify-content: center;  /* Centers the images horizontally */
+    align-items: center;       /* Aligns them properly */
+    gap: 20px;                 /* Space between images */
+    flex-wrap: wrap;           /* Allows images to adjust on smaller screens */
+    padding-top: 90px;
+    padding-left: 0;           /* Remove left padding */
+}
+
+.pic img {
+    width: 340px;
+    height: 300px;
+    padding: 15px;             /* Make padding uniform */
+    max-width: 100%;           /* Prevents overflow */
+    object-fit: cover;         /* Ensures images look good */
+}
+
+
+/*.pic {
     padding-top: 90px;
     padding-left: 55px;
 }
@@ -169,7 +189,7 @@ body {
     width:340px;
     height:300px;
     padding:15px
-}
+}*/
 
 .login-box {
     background-color: #1E1E1E;
