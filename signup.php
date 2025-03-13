@@ -1,9 +1,14 @@
 <?php
-// Make sure to include your database connection file
-include 'db_connection.php';
+// Include the database connection
+include('db_connection.php');
 
+// Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get form data
+    echo "<pre>";
+    print_r($_POST);  // To check if form data is being received
+    echo "</pre>";
+
+    // Get the data from the form
     $name = $_POST['name'];
     $email = $_POST['email'];
     $password = $_POST['password'];
@@ -11,24 +16,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Check if passwords match
     if ($password !== $confirm_password) {
-        echo "Passwords do not match!";
-        exit();
+        die("Passwords do not match!");
     }
 
-    // Hash the password for security
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+    // Hash the password before saving to the database
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    // Prepare the SQL query
-    $query = $db->prepare("INSERT INTO users (name, email, password) VALUES (:name, :email, :password)");
-    $query->bindParam(':name', $name);
-    $query->bindParam(':email', $email);
-    $query->bindParam(':password', $hashedPassword);
+    // SQL query to insert user into the database
+    $sql = "INSERT INTO users (name, email, password) VALUES (?, ?, ?)";
 
-    // Execute the query
-    if ($query->execute()) {
-        echo "Sign-up successful!";
+    // Prepare the SQL statement to prevent SQL injection
+    if ($stmt = $conn->prepare($sql)) {
+        // Bind parameters
+        $stmt->bind_param("sss", $name, $email, $hashed_password);
+
+        // Execute the query
+        if ($stmt->execute()) {
+            echo "User registered successfully!";
+        } else {
+            echo "Error: " . $stmt->error;
+        }
+
+        // Close statement
+        $stmt->close();
     } else {
-        echo "Error: Could not save the user data.";
+        echo "Error preparing query: " . $conn->error;
     }
 }
+
+// Close the connection
+$conn->close();
 ?>

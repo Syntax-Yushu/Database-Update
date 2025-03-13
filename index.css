@@ -21,11 +21,12 @@ body {
 
 
 #logo {
-    font-family:'cursive';
+    font-family: 'Meie Script', cursive; 
     float:left;
     font-size: 25px;
     margin-bottom:1px;
 }
+
 
 .menu {
     display: flex;
