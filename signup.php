@@ -1,49 +1,56 @@
 <?php
-// Include the database connection
-include('db_connection.php');
+// Database connection
+$servername = "localhost"; // Your database server
+$username = "root";        // Your database username
+$password = "";            // Your database password
+$dbname = "hotel.db"; // Database name
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    echo "<pre>";
-    print_r($_POST);  // To check if form data is being received
-    echo "</pre>";
-
-    // Get the data from the form
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $confirm_password = $_POST['confirm_password'];
-
+    // Get form data
+    $name = mysqli_real_escape_string($conn, $_POST['name']);
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $password = mysqli_real_escape_string($conn, $_POST['password']);
+    $confirm_password = mysqli_real_escape_string($conn, $_POST['confirm_password']);
+    
     // Check if passwords match
     if ($password !== $confirm_password) {
-        die("Passwords do not match!");
+        echo "Passwords do not match.";
+        exit;
     }
 
-    // Hash the password before saving to the database
+    // Hash the password before storing it
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    // SQL query to insert user into the database
-    $sql = "INSERT INTO users (name, email, password) VALUES (?, ?, ?)";
+    // Check if email already exists
+    $sql = "SELECT * FROM users WHERE email = '$email'";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        echo "Email is already taken.";
+        exit;
+    }
 
-    // Prepare the SQL statement to prevent SQL injection
-    if ($stmt = $conn->prepare($sql)) {
-        // Bind parameters
-        $stmt->bind_param("sss", $name, $email, $hashed_password);
-
-        // Execute the query
-        if ($stmt->execute()) {
-            echo "User registered successfully!";
-        } else {
-            echo "Error: " . $stmt->error;
-        }
-
-        // Close statement
-        $stmt->close();
+    // Insert the user into the database
+    $sql = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$hashed_password')";
+    
+    if ($conn->query($sql) === TRUE) {
+        // Redirect to the login page or another page upon successful registration
+        echo "Registration successful!";
+        header("Location: login.php");  // Redirect to login page
+        exit;
     } else {
-        echo "Error preparing query: " . $conn->error;
+        echo "Error: " . $sql . "<br>" . $conn->error;
     }
 }
 
-// Close the connection
+// Close the database connection
 $conn->close();
 ?>
