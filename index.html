@@ -69,24 +69,26 @@
         <div class="modal-content login-box">
             <span class="close" onclick="closeModal('loginmodal')">&times;</span>
             <h2>Welcome!!</h2>
-            <form id="login-form">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" placeholder="Enter your Email" required> 
-                
-                <label for="password">Password:</label>
-                <div class="password-container">
-                    <input type="password" id="password" name="password" placeholder="Enter your Password" required>
-                    <span class="toggle-password">👁️</span>
-                </div>
-                
-                <a href="#" class="forgot-password">Forgot Password?</a>
-                <button id="loginbutton">LOGIN</button>
-                
-                <p class="continue-with">Or Continue with...</p>
-                <button class="google-login">
-                    <img src="images/google.png" alt="Google Logo"> Google
-                </button>
-            </form>
+            <!-- Inside your login modal -->
+<form id="login-form" action="login.php" method="POST">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" placeholder="Enter your Email" required>
+
+    <label for="password">Password:</label>
+    <div class="password-container">
+        <input type="password" id="password" name="password" placeholder="Enter your Password" required>
+        <span class="toggle-password">👁️</span>
+    </div>
+
+    <a href="#" class="forgot-password">Forgot Password?</a>
+    <button id="loginbutton" type="submit">LOGIN</button>
+
+    <p class="continue-with">Or Continue with...</p>
+    <button class="google-login">
+        <img src="images/google.png" alt="Google Logo"> Google
+    </button>
+</form>
+
             <p class="signup-link">Don't have an account? <a href="#">Sign Up</a></p>
         </div>
     </div>
@@ -95,30 +97,33 @@
         <div class="modal-content login-box">
             <span class="close" onclick="closeModal('signupmodal')">&times;</span>
             <h2>Create an Account</h2>
-            <form id="signup-form">
-                <label for="signup-name">Full Name:</label>
-                <input type="text" id="signup-name" name="name" placeholder="Enter your Name" required>
-    
-                <label for="signup-email">Email:</label>
-                <input type="email" id="signup-email" name="email" placeholder="Enter your Email" required>
-    
-                <label for="signup-password">Password:</label>
-                <div class="password-container">
-                    <input type="password" id="signup-password" name="password" placeholder="Enter your Password" required>
-                    <span class="toggle-password" onclick="togglePassword('signup-password')">👁️</span>
-                </div>
-    
-                <label for="confirm-password">Confirm Password:</label>
-                <div class="password-container">
-                    <input type="password" id="confirm-password" name="confirm_password" placeholder="Confirm your Password" required>
-                    <span class="toggle-password" onclick="togglePassword('confirm-password')">👁️</span>
-                </div>
-    
-                <p id="password-error" style="color: red; display: none;">Passwords do not match!</p>
-    
-                <button type="submit" id="signupbutton">SIGN UP</button>
-            </form>
+
+                <form id="signup-form" action="signup.php" method="POST">
+
+                    <label for="signup-name">Full Name:</label>
+                    <input type="text" id="signup-name" name="name" placeholder="Enter your Name" required>
+        
+                    <label for="signup-email">Email:</label>
+                    <input type="email" id="signup-email" name="email" placeholder="Enter your Email" required>
+        
+                    <label for="signup-password">Password:</label>
+                    <div class="password-container">
+                        <input type="password" id="signup-password" name="password" placeholder="Enter your Password" required>
+                        <span class="toggle-password" onclick="togglePassword('signup-password')">👁️</span>
+                    </div>
+        
+                    <label for="confirm-password">Confirm Password:</label>
+                    <div class="password-container">
+                        <input type="password" id="confirm-password" name="confirm_password" placeholder="Confirm your Password" required>
+                        <span class="toggle-password" onclick="togglePassword('confirm-password')">👁️</span>
+                    </div>
+        
+                    <p id="password-error" style="color: red; display: none;">Passwords do not match!</p>
+        
+                    <button type="submit" id="signupbutton">SIGN UP</button>
+                </form>
             
+               
             <p class="continue-with">Or Sign up with...</p>
             <button class="google-login">
                 <img src="images/google.png" alt="Google Logo"> Google
@@ -142,6 +147,16 @@ function closeModal(id) {
     document.getElementById(id).style.display = "none";
 }
 
+function togglePassword(inputId) {
+    const passwordField = document.getElementById(inputId);
+    if (passwordField.type === "password") {
+        passwordField.type = "text";
+    } else {
+        passwordField.type = "password";
+    }
+}
+
+
 document.querySelector(".signup-link a").addEventListener("click", function(event) {
     event.preventDefault();
     closeModal("loginmodal");
@@ -161,6 +176,18 @@ window.onclick = function(event) {
         }
     }
 };
+
+document.getElementById("signup-form").onsubmit = function(event) {
+        // Get password and confirm password values
+        var password = document.getElementById("signup-password").value;
+        var confirmPassword = document.getElementById("confirm-password").value;
+
+        // If passwords do not match, prevent form submission and show an error
+        if (password !== confirmPassword) {
+            event.preventDefault(); // Prevent form submission
+            document.getElementById("password-error").style.display = "block"; // Show error message
+        }
+    };
 
 document.getElementById("booknow").addEventListener("click", function () {
     openModal("loginmodal");
