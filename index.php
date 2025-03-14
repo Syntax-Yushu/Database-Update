@@ -70,7 +70,7 @@
         <div class="modal-content login-box">
             <span class="close" onclick="closeModal('loginmodal')">&times;</span>
             <h2>Welcome!!</h2>
-            <form id="login-form">
+            <form id="login-form" action="login.php" method="POST">
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" placeholder="Enter your Email" required> 
                 
@@ -96,10 +96,10 @@
         <div class="modal-content login-box">
             <span class="close" onclick="closeModal('signupmodal')">&times;</span>
             <h2>Create an Account</h2>
-            <form id="signup-form">
+            <form method = "post" action = "signup.php">
 
                 <label for="signup-name">Full Name:</label>
-                <input type="text" id="signup-name" name="name" placeholder="Enter your Name" required>
+                <input type="text" id="signup-name" name="fullname" placeholder="Enter your Name" required>
     
                 <label for="signup-email">Email:</label>
                 <input type="email" id="signup-email" name="email" placeholder="Enter your Email" required>

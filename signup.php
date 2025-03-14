@@ -1,56 +1,44 @@
 <?php
 // Database connection
-$servername = "localhost"; // Your database server
-$username = "root";        // Your database username
-$password = "";            // Your database password
-$dbname = "hotel.db"; // Database name
+$servername = "localhost";
+$username = "root"; // your database username
+$password = ""; // your database password
+$dbname = "hoteldb"; // your database name
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+// Create a connection
+$conn = new mysqli($servername, $username, $password, $dbname, 3007);
 
-// Check connection
+// Check the connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get form data
-    $name = mysqli_real_escape_string($conn, $_POST['name']);
+    // Get form data and sanitize it
+    $fullname = mysqli_real_escape_string($conn, $_POST['fullname']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $password = mysqli_real_escape_string($conn, $_POST['password']);
     $confirm_password = mysqli_real_escape_string($conn, $_POST['confirm_password']);
-    
-    // Check if passwords match
+
+    // Check if the passwords match
     if ($password !== $confirm_password) {
-        echo "Passwords do not match.";
-        exit;
-    }
-
-    // Hash the password before storing it
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
-    // Check if email already exists
-    $sql = "SELECT * FROM users WHERE email = '$email'";
-    $result = $conn->query($sql);
-    if ($result->num_rows > 0) {
-        echo "Email is already taken.";
-        exit;
-    }
-
-    // Insert the user into the database
-    $sql = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$hashed_password')";
-    
-    if ($conn->query($sql) === TRUE) {
-        // Redirect to the login page or another page upon successful registration
-        echo "Registration successful!";
-        header("Location: login.php");  // Redirect to login page
-        exit;
+        echo "<p style='color: red;'>Passwords do not match!</p>";
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
-}
+        // Hash the password
+        $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
-// Close the database connection
-$conn->close();
+        // SQL query to insert data into customers table
+        $sql = "INSERT INTO customers (fullname, email, password) VALUES ('$fullname', '$email', '$hashed_password')";
+
+        if ($conn->query($sql) === TRUE) {
+            echo "New record created successfully!";
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+    }
+
+    // Close connection
+    $conn->close();
+}
 ?>
