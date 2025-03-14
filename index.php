@@ -96,36 +96,38 @@
         <div class="modal-content login-box">
             <span class="close" onclick="closeModal('signupmodal')">&times;</span>
             <h2>Create an Account</h2>
-            <form method = "post" action = "signup.php">
+            <form method="post" action="signup.php" id="signup-form">
 
                 <label for="signup-name">Full Name:</label>
                 <input type="text" id="signup-name" name="fullname" placeholder="Enter your Name" required>
-    
+
                 <label for="signup-email">Email:</label>
                 <input type="email" id="signup-email" name="email" placeholder="Enter your Email" required>
-    
+
                 <label for="signup-password">Password:</label>
                 <div class="password-container">
-                    <input type="password" id="signup-password" name="password" placeholder="Enter your Password" required>
+                    <input type="password" id="signup-password" name="password" placeholder="Enter your Password"
+                        required>
                     <span class="toggle-password" onclick="togglePassword('signup-password')">👁️</span>
                 </div>
-    
+
                 <label for="confirm-password">Confirm Password:</label>
                 <div class="password-container">
-                    <input type="password" id="confirm-password" name="confirm_password" placeholder="Confirm your Password" required>
+                    <input type="password" id="confirm-password" name="confirm_password"
+                        placeholder="Confirm your Password" required>
                     <span class="toggle-password" onclick="togglePassword('confirm-password')">👁️</span>
                 </div>
-    
+
                 <p id="password-error" style="color: red; display: none;">Passwords do not match!</p>
-    
+
                 <button type="submit" id="signupbutton">SIGN UP</button>
             </form>
-            
+
             <p class="continue-with">Or Sign up with...</p>
             <button class="google-login">
                 <img src="images/google.png" alt="Google Logo"> Google
             </button>
-    
+
             <p class="signup-link">Already have an account? <a href="#" onclick="switchToLogin()">Login</a></p>
         </div>
     </div>
@@ -213,20 +215,20 @@ document.getElementById("loginbutton").addEventListener("click", function(event)
         localStorage.setItem("isLoggedIn", "true");
         localStorage.setItem("userRole", "admin"); 
         closeModal("loginmodal");
-        window.location.href = "dashboard.html"; 
+        window.location.href = "dashboard.php"; 
 
     } else if (email === "user@gmail.com" && password === "user123") {
         alert("User Login successful!");
         localStorage.setItem("isLoggedIn", "true");
         localStorage.setItem("userRole", "user");
         closeModal("loginmodal");
-        window.location.href = "booknow.html"; 
+        window.location.href = "booknow.php"; 
 
         if (sessionStorage.getItem("redirectToBookNow") === "true") {
             sessionStorage.removeItem("redirectToBookNow");
-            window.location.href = "booknow.html"; 
+            window.location.href = "booknow.php"; 
         } else {
-            window.location.href = "booknow.html"; 
+            window.location.href = "booknow.php"; 
         }
     } else {
         alert("Invalid email or password. Please try again.");
