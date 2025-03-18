@@ -1,44 +1,53 @@
 <?php
-// Database connection
-$servername = "localhost";
-$username = "root"; // your database username
-$password = ""; // your database password
-$dbname = "hoteldb"; // your database name
+ob_start();
+session_start();
+include('dbconnect.php'); 
 
-// Create a connection
-$conn = new mysqli($servername, $username, $password, $dbname, 3007);
-
-// Check the connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get form data and sanitize it
-    $fullname = mysqli_real_escape_string($conn, $_POST['fullname']);
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $password = mysqli_real_escape_string($conn, $_POST['password']);
-    $confirm_password = mysqli_real_escape_string($conn, $_POST['confirm_password']);
+    $fullname = trim(mysqli_real_escape_string($conn, $_POST['fullname']));
+    $email = trim(mysqli_real_escape_string($conn, $_POST['email']));
+    $password = trim($_POST['password']);
+    $confirm_password = trim($_POST['confirm_password']);
 
-    // Check if the passwords match
     if ($password !== $confirm_password) {
-        echo "<p style='color: red;'>Passwords do not match!</p>";
-    } else {
-        // Hash the password
-        $hashed_password = password_hash($password, PASSWORD_BCRYPT);
-
-        // SQL query to insert data into customers table
-        $sql = "INSERT INTO customers (fullname, email, password) VALUES ('$fullname', '$email', '$hashed_password')";
-
-        if ($conn->query($sql) === TRUE) {
-            echo "New record created successfully!";
-        } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "<script>alert('Passwords do not match! Please try again.'); window.history.back();</script>";
+        exit();
+    } 
+        $check_sql = "SELECT email FROM customers WHERE email = ?";
+    if ($stmt = $conn->prepare($check_sql)) {
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $stmt->store_result();
+    
+        if ($stmt->num_rows > 0) {
+            echo "<script>alert('Email already registered! Please try again.'); window.history.back();</script>";
+            exit();
         }
+        $stmt->close();
     }
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    // Close connection
-    $conn->close();
+        $sql = "INSERT INTO customers (fullname, email, password) VALUES (?, ?, ?)";
+        if ($stmt = $conn->prepare($sql)) {
+            $stmt->bind_param("sss", $fullname, $email, $hashed_password);
+            
+            if ($stmt->execute()) {
+                echo "<script>
+                        alert('Registration successful! You can now log in.');
+                        window.location.replace('index.php');
+                      </script>";
+                exit();
+            } else {
+                echo "<script>
+                        alert('Error inserting data. Please try again.');
+                        window.history.back();
+                      </script>";
+            }
+            $stmt->close();
+        }
+        
 }
+
+$conn->close();
+ob_end_flush();
 ?>

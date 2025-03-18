@@ -1,46 +1,53 @@
 <?php
 session_start();
-include('dbconnect.php');
+include('dbconnect.php'); 
+
+$admin_email = "admin@gmail.com";
+$admin_password = password_hash("admin123", PASSWORD_DEFAULT);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+    $email = trim(mysqli_real_escape_string($conn, $_POST['email']));
+    $password = trim($_POST['password']);
 
-    $sql = "SELECT * FROM customers WHERE email = ?";
-    
+    if ($email === $admin_email && password_verify($password, $admin_password)) {
+        $_SESSION['user_id'] = 0;
+        $_SESSION['fullname'] = "Administrator";
+        $_SESSION['role'] = "admin";
+        
+        echo "<script>
+                alert('Admin login successful!');
+                window.location.replace('dashboard.php');
+              </script>";
+        exit();
+    }
+
+    $sql = "SELECT customer_id, fullname, password FROM customers WHERE email = ?";
     if ($stmt = $conn->prepare($sql)) {
-      
-        $stmt->bind_param("s", $email); 
-
+        $stmt->bind_param("s", $email);
         $stmt->execute();
+        $stmt->store_result();
 
-        $result = $stmt->get_result();
-
-        if ($result->num_rows > 0) {
-            $customer = $result->fetch_assoc();
-
-            if (password_verify($password, $customer['password'])) {
-                $_SESSION['customer_id'] = $customer['id'];
-                $_SESSION['customer_email'] = $customer['email'];
-                $_SESSION['customer_role'] = $customer['role'];
-
-                // Redirect based on role
-                if ($customer['role'] == 'admin') {
-                    header("Location: dashboard.php"); // Admin dashboard
-                } else {
-                    header("Location: booknow.php"); // User booking page
-                }
+        if ($stmt->num_rows > 0) {
+            $stmt->bind_result($customer_id, $fullname, $hashed_password);
+            $stmt->fetch();
+            
+            if (password_verify($password, $hashed_password)) {
+                $_SESSION['user_id'] = $customer_id;
+                $_SESSION['fullname'] = $fullname;
+                $_SESSION['role'] = "user";
+                
+                echo "<script>
+                        alert('Login successful!');
+                        window.location.replace('booknow.php');
+                      </script>";
                 exit();
             } else {
-                echo "Invalid email or password.";
+                echo "<script>alert('Invalid password! Please try again.'); window.history.back();</script>";
             }
         } else {
-            echo "Invalid email or password.";
+            echo "<script>alert('No account found with that email!'); window.history.back();</script>";
         }
-
         $stmt->close();
-    } else {
-        echo "Error preparing SQL statement.";
     }
 }
 

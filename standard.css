@@ -5,7 +5,6 @@ body {
     margin: 0;
     padding: 0;
 }
-
 .navbar {
     display: flex;
     align-items: center;
@@ -202,3 +201,24 @@ input, select {
     font-size: 20px;
     color: #d4af37;
 }
+
+/* Temporary Button Styling */
+.temp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px; /* Ensures the button is on the lower right */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+.temp-button:hover {
+    background-color: #0056b3;
+}
+
+
+

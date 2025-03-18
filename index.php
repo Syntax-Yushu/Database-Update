@@ -6,6 +6,7 @@
     <title>Hotel Reservation</title>
     <link rel="stylesheet" href="Index.css">
     <link href="https://fonts.googleapis.com/css2?family=Meie+Script&display=swap" rel="stylesheet">
+    <script src="index.js" defer></script>
 </head>
 <body>
     <div class="top-bar">
@@ -131,111 +132,6 @@
             <p class="signup-link">Already have an account? <a href="#" onclick="switchToLogin()">Login</a></p>
         </div>
     </div>
-    
-    
-    <script>
- function openModal(id) {
-    let modals = document.getElementsByClassName("modal");
-    for (let modal of modals) {
-        modal.style.display = "none";
-    }
-    document.getElementById(id).style.display = "flex";
-}
-
-function closeModal(id) {
-    document.getElementById(id).style.display = "none";
-}
-
-function togglePassword(inputId) {
-            const passwordField = document.getElementById(inputId);
-            if (passwordField.type === "password") {
-                passwordField.type = "text";
-                 
-            } else {
-                passwordField.type = "password";
-                eyeIcon.innerHTML = "👁️";
-            }
-        }   
-
-document.querySelector(".signup-link a").addEventListener("click", function(event) {
-    event.preventDefault();
-    closeModal("loginmodal");
-    openModal("signupmodal");
-});
-
-function switchToLogin() {
-    closeModal("signupmodal");
-    openModal("loginmodal");
-}
-
-window.onclick = function(event) {
-    let modals = document.getElementsByClassName("modal");
-    for (let modal of modals) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-};
-
-document.getElementById("signup-form").onsubmit = function(event) {
-            var password = document.getElementById("signup-password").value;
-            var confirmPassword = document.getElementById("confirm-password").value;
-
-            if (password !== confirmPassword) {
-                event.preventDefault(); // Prevent form submission
-                document.getElementById("password-error").style.display = "block"; // Show error message
-            }
-        };
-
-document.getElementById("booknow").addEventListener("click", function () {
-    openModal("loginmodal");
-});
-
-function isUserLoggedIn() {
-    return localStorage.getItem("isLoggedIn") === "true";
-}
-
-function getUserRole() {
-    return localStorage.getItem("userRole"); 
-}
-
-document.getElementById("booknow").addEventListener("click", function () {
-           openModal("loginmodal"); 
-    }
-);
-
-document.getElementById("loginbutton").addEventListener("click", function(event) {
-    event.preventDefault(); 
-
-    let email = document.getElementById("email").value.trim();
-    let password = document.getElementById("password").value.trim();
-    
-    if (email === "admin@gmail.com" && password === "admin123") {
-        alert("Admin Login successful!");
-        localStorage.setItem("isLoggedIn", "true");
-        localStorage.setItem("userRole", "admin"); 
-        closeModal("loginmodal");
-        window.location.href = "dashboard.php"; 
-
-    } else if (email === "user@gmail.com" && password === "user123") {
-        alert("User Login successful!");
-        localStorage.setItem("isLoggedIn", "true");
-        localStorage.setItem("userRole", "user");
-        closeModal("loginmodal");
-        window.location.href = "booknow.php"; 
-
-        if (sessionStorage.getItem("redirectToBookNow") === "true") {
-            sessionStorage.removeItem("redirectToBookNow");
-            window.location.href = "booknow.php"; 
-        } else {
-            window.location.href = "booknow.php"; 
-        }
-    } else {
-        alert("Invalid email or password. Please try again.");
-    }
-});
-
-    </script>
 </body>
 <footer>
     <div class="pic">

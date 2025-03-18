@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking</title>
     <link rel="stylesheet" href="booknow.css">
+    <script src="booknow.js"></script>
 </head>
 <body>
     <header class="navbar">
@@ -25,7 +26,7 @@
 
     <main class="room-list">
         <div class="room">
-            <input type="checkbox">
+            <input type="checkbox" id="standard-room" name="room" value="Standard Rooms">
             <img src="images/standard room.png" alt="Standard Room">
             <div class="room-info">
                 <h2>Standard Rooms</h2>
@@ -37,7 +38,7 @@
         </div>
 
         <div class="room">
-            <input type="checkbox">
+            <input type="checkbox" id="deluxe-room" name="room" value="Deluxe Rooms">
             <img src="images/deluxe.png" alt="Deluxe Room">
             <div class="room-info">
                 <h2>Deluxe Rooms</h2>
@@ -49,7 +50,7 @@
         </div>
 
         <div class="room">
-            <input type="checkbox">
+            <input type="checkbox" id="executive-room" name="room" value="Executive Rooms">
             <img src="images/executive.png" alt="Executive Room">
             <div class="room-info">
                 <h2>Executive Rooms</h2>
