@@ -10,8 +10,7 @@
 
     <nav class="navbar">
         <div class="logo">
-            <h1>Stay Go Hotel</h1>
-            <p>09235618831 | <a href="#">Contact Us</a></p>
+            <a href=""><img src="images/logowithcontact.png" alt="Hotel Logo"></a>
         </div>
         <ul class="nav-links">
             <li><a href="#">Home</a></li>
@@ -94,7 +93,16 @@
         </div>
     </div>
 
-    <button class="temp-button" onclick="window.location.href='Information.php'">Temporary</button>
+    
+    <div class="next-button">
+        <button onclick="goToNextPage()">→</button>
+    </div>
+    
+    <script>
+        function goToNextPage() {
+            window.location.href = "confirmed.html";
+        }
+    </script>
 
     <script src="standardreserve.js"></script>
 

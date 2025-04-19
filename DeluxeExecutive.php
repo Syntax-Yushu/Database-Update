@@ -27,7 +27,7 @@
     <div class="container">
         <div class="content">
             <div class="room-image">
-                <img src="images/deluxe.png" alt="Standard Room">
+                <img src="images/deluxe.png" alt="Deluxe Room">
             </div>
             <div class="room-details">
                 <h2>Standard Rooms</h2>
@@ -89,7 +89,7 @@ enhanced amenities like a minibar, coffee maker, and scenic views. Perfect for g
     <div class="container">
         <div class="content">
             <div class="room-image">
-                <img src="images/executive.png" alt="Standard Room">
+                <img src="images/executive.png" alt="Executive Room">
             </div>
             <div class="room-details">
                 <h2>Standard Rooms</h2>
@@ -151,6 +151,17 @@ a seating area, and access to exclusive services like a business lounge or compl
             </div>
         </div>
     </div>
+
+    
+    <div class="next-button">
+        <button onclick="goToNextPage()">→</button>
+    </div>
+    
+    <script>
+        function goToNextPage() {
+            window.location.href = "confirmed.html";
+        }
+    </script>
 
 </body>
 </html>

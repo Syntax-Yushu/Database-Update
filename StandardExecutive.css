@@ -8,9 +8,10 @@ body {
 
 .navbar {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: space-between; 
-    padding: 10px 13px;
+    padding: 15px 20px;
+    background: #151414;
 }
 
 .nav-menu {
@@ -321,4 +322,26 @@ input, select {
 .amount {
     font-size: 20px;
     color: #d4af37;
+}
+
+.next-button {
+    text-align: right; 
+    margin-top: 5px;
+    margin-right: 20px; 
+    margin-bottom: 10px; 
+}
+
+.next-button button {
+    background-color: #8B6F44;
+    color: white;
+    border: none;
+    padding: 20px 40px; 
+    font-size: 20px; 
+    border-radius: 8px; 
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.next-button button:hover {
+    background-color: #d4af37;
 }
