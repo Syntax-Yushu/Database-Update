@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const roomPricePerNight = 1000;
-    const roomQty = document.getElementById("standardroomQty");
-    const numGuests = document.getElementById("standardnumGuests");
-    const checkinDate = document.getElementById("standardcheckinDate");
-    const checkoutDate = document.getElementById("standardcheckoutDate");
-    const checkinTime = document.getElementById("standardcheckinTime");
-    const checkoutTime = document.getElementById("standardcheckoutTime");
-    const totalPrice = document.getElementById("totalPrice");
+    const roomPricePerNight = 1500;
+    const roomQty = document.getElementById("deluxeroomQty");
+    const numGuests = document.getElementById("deluxenumGuests");
+    const checkinDate = document.getElementById("deluxecheckinDate");
+    const checkoutDate = document.getElementById("deluxecheckoutDate");
+    const checkinTime = document.getElementById("deluxecheckinTime");
+    const checkoutTime = document.getElementById("deluxecheckoutTime");
+    const totalPrice = document.getElementById("deluxetotalPrice");
 
     // Ensure all elements exist before proceeding
     if (!roomQty || !numGuests || !checkinDate || !checkoutDate || !checkinTime || !checkoutTime || !totalPrice) {
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function calculateTotal() {
         let checkin = new Date(checkinDate.value);
         let checkout = new Date(checkoutDate.value);
-        
+
         if (checkout > checkin) {
             let nights = (checkout - checkin) / (1000 * 60 * 60 * 24); // Convert ms to days
             let totalCost = nights * roomPricePerNight * parseInt(roomQty.value);

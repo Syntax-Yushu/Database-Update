@@ -43,45 +43,45 @@
 
                 <div class="input-group">
                     <label>Qty:</label>
-                    <select>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
+                    <select id="standardroomQty" name="roomQty">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
                     </select>
                 </div>
 
                 <div class="input-group">
                     <label>No. of Guests:</label>
-                    <input type="number" min="1" max="4">
+                    <input type="number" min="1" max="4" id="standardnumGuests" name="numGuests">
                 </div>
 
                 <div class="checkin-checkout">
                     <div>
                         <label>Check-in</label>
-                        <input type="date">
+                        <input type="date" id="standardcheckinDate" name="checkinDate">
                     </div>
                     <div>
                         <label>Check-out</label>
-                        <input type="date">
+                        <input type="date" id="standardcheckoutDate" name="checkoutDate">
                     </div>
                 </div>
 
                 <div class="time-selection">
                     <div>
                         <label>Check-in Time:</label>
-                        <input type="time">
+                        <input type="time" id="standardcheckinTime" readonly>
                     </div>
                     <div>
                         <label>Check-out Time:</label>
-                        <input type="time">
+                        <input type="time" id="standardcheckoutTime" readonly>
                     </div>
                 </div>
 
                 <div class="special-services">
                     <p>Special Services:</p>
-                    <input type="checkbox"> Spa <br>
-                    <input type="checkbox"> Airport Transfer <br>
-                    <input type="checkbox"> Room Service <br>
+                    <input type="checkbox" name="services[]" value="Spa"> Spa <br>
+                    <input type="checkbox" name="services[]" value="Airport Transfer"> Airport Transfer <br>
+                    <input type="checkbox" name="services[]" value="Room Service"> Room Service <br>
                     <span class="note">(Check as many as you like)</span>
                 </div>
             </div>
@@ -94,63 +94,65 @@
                 <img src="images/deluxe.png" alt="Deluxe Room">
             </div>
             <div class="room-details">
-                <h2>Standard Rooms</h2>
+                <h2>Deluxe Rooms</h2>
                 <p class="description">
-                    We offers more space and comfort than a standard room, featuring upscale furnishings, a larger bed, premium linens, a well-appointed bathroom, and 
-enhanced amenities like a minibar, coffee maker, and scenic views. Perfect for guests seeking a more luxurious stay.
+                    We offer more space and comfort than a standard room, featuring upscale furnishings, a larger bed, premium linens, a well-appointed bathroom, and 
+                    enhanced amenities like a minibar, coffee maker, and scenic views. Perfect for guests seeking a more luxurious stay.
                 </p>
                 <p class="capacity">Max Capacity: 2 Adults, 2 Children</p>
                 <p class="price">1,500 Pesos / Per Night</p>
 
                 <div class="input-group">
                     <label>Qty:</label>
-                    <select>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
+                    <select id="deluxeroomQty" name="roomQty">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
                     </select>
                 </div>
 
                 <div class="input-group">
                     <label>No. of Guests:</label>
-                    <input type="number" min="1" max="4">
+                    <input type="number" min="1" max="4" id="deluxenumGuests" name="numGuests">
                 </div>
 
                 <div class="checkin-checkout">
                     <div>
                         <label>Check-in</label>
-                        <input type="date">
+                        <input type="date" id="deluxecheckinDate" name="checkinDate">
                     </div>
                     <div>
                         <label>Check-out</label>
-                        <input type="date">
+                        <input type="date" id="deluxecheckoutDate" name="checkoutDate">
                     </div>
                 </div>
 
                 <div class="time-selection">
                     <div>
                         <label>Check-in Time:</label>
-                        <input type="time">
+                        <input type="time" id="deluxecheckinTime" readonly>
                     </div>
                     <div>
                         <label>Check-out Time:</label>
-                        <input type="time">
+                        <input type="time" id="deluxecheckoutTime" readonly>
                     </div>
                 </div>
 
                 <div class="special-services">
                     <p>Special Services:</p>
-                    <input type="checkbox"> Spa <br>
-                    <input type="checkbox"> Airport Transfer <br>
-                    <input type="checkbox"> Room Service <br>
+                    <input type="checkbox" name="services[]" value="Spa"> Spa <br>
+                    <input type="checkbox" name="services[]" value="Airport Transfer"> Airport Transfer <br>
+                    <input type="checkbox" name="services[]" value="Room Service"> Room Service <br>
                     <span class="note">(Check as many as you like)</span>
                 </div>
-
-                <div class="total">
-                    <p>Total: <span class="amount">0.00 Pesos</span></p>
-                    <p class="note">The price will vary based on your room service selection.</p>
-                </div>
             </div>
+        </div>
+    </div>
+
+    <div class="total-wrapper">
+        <div class="total">
+            <p>Total: <span id="combinedTotal">0.00 Pesos</span></p>
+            <p class="note">The price will vary based on your room service selection.</p>
         </div>
     </div>
 
@@ -164,6 +166,7 @@ enhanced amenities like a minibar, coffee maker, and scenic views. Perfect for g
         }
     </script>
 
+    <script src="StandardDeluxe.js"></script>
 
 </body>
 </html>

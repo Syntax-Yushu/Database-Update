@@ -5,7 +5,6 @@ body {
     margin: 0;
     padding: 0;
 }
-
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -13,42 +12,84 @@ body {
     padding: 15px 20px;
     background: #151414;
 }
-.logo {
-    font-style: italic;
-    font-size: 24px;
-}
-nav {
+
+.nav-menu {
     display: flex;
-    align-items: center;
+    gap: 20px; 
 }
-nav a {
-    margin: 0 10px;
+
+.nav-menu a {
+    text-decoration: none;
     color: white;
+    font-size: 16px;
+    padding: 5px 10px; 
+}
+
+
+.logo h1 {
+    font-family: 'Cursive', sans-serif;
+    font-size: 22px;
+    margin: 0;
+    color: white;
+}
+
+.logo p {
+    font-size: 12px;
+    margin: 0;
+    color: #ccc;
+}
+
+.logo a {
+    color: #ccc;
     text-decoration: none;
 }
 
-nav a:hover {
-    text-decoration: underline;
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
 }
-.icon {
-    width: 25px;
-    height: 25px;
-    margin-left: 10px;
+
+.nav-links li {
+    display: inline;
 }
-.avatar {
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.nav-links a:hover {
+    color: #d4af37;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.notification {
+    width: 35px;
+    height: 35px;
+}
+
+.profile {
     width: 35px;
     height: 35px;
     border-radius: 50%;
-    margin-left: 10px;
+    object-fit: cover;
 }
 
 .section-header h2 {
     font-size: 16px;
     font-weight: normal;  
-    background-color: #916A2F; 
+    background-color: #916A2F;
     margin: 0;
     padding: 5px 10px;
 }
+
 
 .container {
     width: 90%;
@@ -136,6 +177,7 @@ input, select {
     display: flex;
     flex-direction: column;
 }
+
 .special-services {
     margin: 15px 0;
 }
@@ -161,7 +203,6 @@ input, select {
     color: #d4af37;
 }
 
-
 .next-button {
     text-align: right; 
     margin-top: 5px;
@@ -183,3 +224,6 @@ input, select {
 .next-button button:hover {
     background-color: #d4af37;
 }
+
+
+

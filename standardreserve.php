@@ -43,7 +43,7 @@
 
                 <div class="input-group">
                     <label>Qty:</label>
-                    <select id="roomQty" name="roomQty">
+                    <select id="standardroomQty" name="roomQty">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -52,30 +52,30 @@
 
                 <div class="input-group">
                     <label>No. of Guests:</label>
-                    <input type="number" min="1" max="4" id="numGuests" name="numGuests">
+                    <input type="number" min="1" max="4" id="standardnumGuests" name="numGuests">
                 </div>
 
-                <div class="checkin-checkout">
-                    <div>
-                        <label>Check-in</label>
-                        <input type="date" id="checkinDate" name="checkinDate">
-                    </div>
-                    <div>
-                        <label>Check-out</label>
-                        <input type="date" id="checkoutDate" name="checkoutDate">
-                    </div>
-                </div>
+        <div class="checkin-checkout">
+                <div>
+                <label>Check-in</label>
+                <input type="date" id="standardcheckinDate" name="checkinDate">
+            </div>
+            <div>
+                <label>Check-out</label>
+                <input type="date" id="standardcheckoutDate" name="checkoutDate">
+            </div>
+        </div>
 
-                <div class="time-selection">
-                    <div>
-                        <label>Check-in Time:</label>
-                        <input type="time" id="checkinTime" readonly>
-                    </div>
-                    <div>
-                        <label>Check-out Time:</label>
-                        <input type="time" id="checkoutTime" readonly>
-                    </div>
-                </div>
+        <div class="time-selection">
+            <div>
+                <label>Check-in Time:</label>
+                <input type="time" id="standardcheckinTime" readonly>
+            </div>
+            <div>
+                <label>Check-out Time:</label>
+                <input type="time" id="standardcheckoutTime" readonly>
+            </div>
+        </div>
 
                 <div class="special-services">
                     <p>Special Services:</p>

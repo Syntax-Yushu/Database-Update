@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const roomPricePerNight = 1000;
-    const roomQty = document.getElementById("standardroomQty");
-    const numGuests = document.getElementById("standardnumGuests");
-    const checkinDate = document.getElementById("standardcheckinDate");
-    const checkoutDate = document.getElementById("standardcheckoutDate");
-    const checkinTime = document.getElementById("standardcheckinTime");
-    const checkoutTime = document.getElementById("standardcheckoutTime");
+    const roomPricePerNight = 2000;
+    const roomQty = document.getElementById("executiveroomQty");
+    const numGuests = document.getElementById("executivenumGuests");
+    const checkinDate = document.getElementById("executivecheckinDate");
+    const checkoutDate = document.getElementById("executivecheckoutDate");
+    const checkinTime = document.getElementById("executivecheckinTime");
+    const checkoutTime = document.getElementById("executivecheckoutTime");
     const totalPrice = document.getElementById("totalPrice");
 
     // Ensure all elements exist before proceeding
