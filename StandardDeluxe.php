@@ -162,7 +162,7 @@
     
     <script>
         function goToNextPage() {
-            window.location.href = "confirmed.html";
+            window.location.href = "Information.php";
         }
     </script>
 

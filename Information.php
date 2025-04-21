@@ -98,12 +98,7 @@
                     <span class="optional">(Optional)</span>
                 </div>
             </div>
-
-            <div class="buttons">
-                <button type="submit" class="button confirm">IMMEDIATE CONFIRMATION</button>
-                <button type="submit" class="button advanced">ADVANCED BOOKING</button>
-            </div>
-
+            
             <div class="terms">
                 <input type="checkbox" required> With this booking I confirm the <a href="#">Terms & Conditions</a> and the <a href="#">Privacy Policy</a>.
             </div>

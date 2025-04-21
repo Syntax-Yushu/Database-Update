@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (selectedRooms.length === 1) {
             let selectedRoom = selectedRooms[0];
-
+        
             if (selectedRoom === "Standard Rooms") {
                 redirectPage = "standardreserve.php";
             } else if (selectedRoom === "Deluxe Rooms") {
@@ -40,11 +40,14 @@ document.addEventListener("DOMContentLoaded", function () {
             } else if (selectedRooms.includes("Deluxe Rooms") && selectedRooms.includes("Executive Rooms")) {
                 redirectPage = "DeluxeExecutive.php";
             }
+        } else if (selectedRooms.length === 3) {
+            redirectPage = "3room.php";
         } else {
-            alert("Please select only one or two rooms.");
+            alert("Please select only one, two, or three rooms.");
             return;
         }
-
+        
+          
         if (redirectPage) {
             console.log("Redirecting to: " + redirectPage);
             window.location.href = redirectPage;
