@@ -97,7 +97,7 @@
                 <h2>Executive Rooms</h2>
                 <p class="description">
                     Designed for business travelers, offering a spacious layout with a work desk, high-speed Wi-Fi, and premium amenities. It often includes a king-size bed, 
-a seating area, and access to exclusive services like a business lounge or complimentary breakfast.
+                    a seating area, and access to exclusive services like a business lounge or complimentary breakfast.
                 </p>
                 <p class="capacity">Max Capacity: 2 Adults, 2 Children</p>
                 <p class="price">2,000 Pesos / Per Night</p>
@@ -111,7 +111,6 @@ a seating area, and access to exclusive services like a business lounge or compl
                     </select>
                 </div>
 
-                <div class="input-group">
                 <div class="input-group">
                     <label>No. of Guests:</label>
                     <input type="number" min="1" max="4" id="executivenumGuests" name="numGuests">
@@ -169,8 +168,6 @@ a seating area, and access to exclusive services like a business lounge or compl
     </script>
 
     <script src="StandardExecutive.js"></script>
-
-
 
 </body>
 </html>
