@@ -29,18 +29,21 @@
     </div>
 
     <div class="container">
-        <div class="content">
-            <div class="room-image">
-                <img src="images/standard room.png" alt="Standard Room">
-            </div>
-            <div class="room-details">
-                <h2>Standard Rooms</h2>
+        <form action="confirmed.php" method="POST">
+            <div class="content">
+                <div class="room-image">
+                    <img src="images/standard room.png" alt="Standard Room">
+                </div>
+                <div class="room-details">
+                    <h2>Standard Rooms</h2>
                 <p class="description">
                     A basic hotel room offering essential amenities for a comfortable stay. It typically includes a bed, a private bathroom, a desk or small sitting area, a TV, air conditioning, and free Wi-Fi. Standard rooms are ideal for budget-conscious travelers seeking a simple yet comfortable lodging experience.
                 </p>
                 <p class="capacity">Max Capacity: 2 Adults, 2 Children</p>
                 <p class="price">1,000 Pesos / Per Night</p>
 
+                <input type="hidden" name="roomType" value="Standard Room">
+           
                 <div class="input-group">
                     <label>Qty:</label>
                     <select id="standardroomQty" name="roomQty">
@@ -89,13 +92,14 @@
                     <p>Total: <span class="amount" id="totalPrice">0.00 Pesos</span></p>
                     <p class="note">The price will vary.</p>
                 </div>
-            </div>
-        </div>
-    </div>
 
-    
-    <div class="next-button">
-        <button onclick="goToNextPage()">→</button>
+                <div class="next-button">
+                    <button type="submit">→</button>
+                </div>
+
+             </div>
+        </div>
+        </form> <!-- ✨ FORM ends here -->
     </div>
     
     <script>

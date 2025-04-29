@@ -29,18 +29,21 @@
     </div>
 
     <div class="container">
-        <div class="content">
-            <div class="room-image">
-                <img src="images/executive.png" alt="Executive Room">
-            </div>
-            <div class="room-details">
-                <h2>Executive Rooms</h2>
+        <form action="confirmed.php" method="POST"> <!-- ✨ FORM starts here -->
+            <div class="content">
+                <div class="room-image">
+                    <img src="images/executive.png" alt="Executive Room">
+                </div>
+                <div class="room-details">
+                    <h2>Executive Rooms</h2>
                 <p class="description">
                     Designed for business travelers, offering a spacious layout with a work desk, high-speed Wi-Fi, and premium amenities. It often includes a king-size bed, 
 a seating area, and access to exclusive services like a business lounge or complimentary breakfast.
                 </p>
                 <p class="capacity">Max Capacity: 2 Adults, 2 Children</p>
                 <p class="price">2,000 Pesos / Per Night</p>
+
+                <input type="hidden" name="roomType" value="Executive Room">
 
                 <div class="input-group">
                     <label>Qty:</label>
@@ -90,13 +93,16 @@ a seating area, and access to exclusive services like a business lounge or compl
                     <p>Total: <span class="amount" id="totalPrice">0.00 Pesos</span></p>
                     <p class="note">The price will vary.</p>
                 </div>
+
+                <div class="next-button">
+                    <button type="submit">→</button>
+                </div>
+
             </div>
         </div>
+        </form> <!-- ✨ FORM ends here -->  
     </div>
    
-    <div class="next-button">
-        <button onclick="goToNextPage()">→</button>
-    </div>
     
     <script>
         function goToNextPage() {

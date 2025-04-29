@@ -64,22 +64,35 @@ body {
 
 .content {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-around;
+    align-items: flex-start;
     gap: 20px;
+    flex-wrap: wrap; /* Allow wrapping for responsiveness */
+}
+
+.room-container {
+    display: flex;
+    flex-direction: column; /* Stack image and details vertically */
+    align-items: left;
+    width: 300px; /* Set a fixed width for each room container */
+    margin: 20px;
+    background: rgba(0, 0, 0, 0.7); /* Add a background for better readability */
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 .room-image img {
-    width: 250px; 
+    width: 100%; /* Make the image take the full width of the container */
     border-radius: 10px;
+    margin-bottom: 15px; /* Add spacing between the image and details */
 }
 
 .room-details {
-    flex-grow: 1;
+    text-align: left; /* Center-align the text */
     font-size: 16px;
     line-height: 1.8;
     color: #ccc;
-    margin-left: 40px; 
 }
 
 .indented {

@@ -1,3 +1,4 @@
+
 <?php include 'Infoconnect.php'; ?>
 
 <!DOCTYPE html>
@@ -104,8 +105,9 @@
             </div>
 
             <div class="book-now">
-                <button type="submit">Book Now</button>
+                <button type="button" onclick="window.location.href='confirmed.php'">Book Now</button>
             </div>
+
         </div>
     </form>
 </body>

@@ -29,18 +29,21 @@
     </div>
 
     <div class="container">
-        <div class="content">
-            <div class="room-image">
-                <img src="images/deluxe.png" alt="Deluxe Room">
-            </div>
-            <div class="room-details">
-                <h2>Deluxe Rooms</h2>
+        <form action="confirmed.php" method="POST"> <!-- ✨ FORM starts here -->
+            <div class="content">
+                <div class="room-image">
+                    <img src="images/deluxe.png" alt="Deluxe Room">
+                </div>
+                <div class="room-details">
+                    <h2>Deluxe Rooms</h2>
                 <p class="description">
                     We offer more space and comfort than a standard room, featuring upscale furnishings, a larger bed, premium linens, a well-appointed bathroom, and 
                     enhanced amenities like a minibar, coffee maker, and scenic views. Perfect for guests seeking a more luxurious stay.
                 </p>
                 <p class="capacity">Max Capacity: 2 Adults, 2 Children</p>
                 <p class="price">1,500 Pesos / Per Night</p>
+
+                <input type="hidden" name="roomType" value="Deluxe Room">
 
                 <div class="input-group">
                     <label>Qty:</label>
@@ -90,14 +93,16 @@
                     <p>Total: <span class="amount" id="deluxetotalPrice">0.00 Pesos</span></p>
                     <p class="note">The price will vary.</p>
                 </div>
+
+                <div class="next-button">
+                    <button type="submit">→</button>
+                </div>
+
             </div>
         </div>
+        </form> <!-- ✨ FORM ends here -->
     </div>
-
-    <div class="next-button">
-        <button onclick="goToNextPage()">→</button>
-    </div>
-    
+  
     <script>
         function goToNextPage() {
             window.location.href = "Information.php";
