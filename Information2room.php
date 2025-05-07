@@ -90,7 +90,7 @@ session_start();
             </div>
 
             <div class="book-now">
-                <button type="button" onclick="window.location.href='confirmed.php'">Book Now</button>
+                <button type="button" onclick="window.location.href='confirmed2room.php'">Book Now</button>
             </div>
 
         </div>

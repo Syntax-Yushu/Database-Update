@@ -1,11 +1,16 @@
 <?php
-$roomType = $_POST['roomType'] ?? 'Standard Room';
-$numRooms = $_POST['roomQty'] ?? 1;
-$numGuests = $_POST['numGuests'] ?? '';
-$checkin = $_POST['checkinDate'] ?? '';
-$checkout = $_POST['checkoutDate'] ?? '';
-$services = (isset($_POST['services']) && is_array($_POST['services']) && count($_POST['services']) > 0)
-    ? implode(',<br>', array_map('htmlspecialchars', $_POST['services']))
+session_start();
+
+$data = $_SESSION['reservation'] ?? [];
+
+// Fallback defaults
+$roomType = $data['roomType'] ?? 'Standard Room';
+$numRooms = $data['roomQty'] ?? 1;
+$numGuests = $data['numGuests'] ?? '';
+$checkin = $data['checkinDate'] ?? '';
+$checkout = $data['checkoutDate'] ?? '';
+$services = (!empty($data['services']) && is_array($data['services']))
+    ? implode(',<br>', array_map('htmlspecialchars', $data['services']))
     : 'None';
 
 // Calculate number of nights
@@ -28,16 +33,20 @@ switch ($roomType) {
         $pricePerNight = 2000;
         break;
     default:
-    $pricePerNight = 1000; // fallback default prices
+        $pricePerNight = 1000; // fallback default price
         break;
 }
 
 // Calculate total
 $total = $numRooms * $numNights * $pricePerNight;
 
+// Generate reservation number
 $reservationNumber = str_pad(rand(1, 99999), 5, '0', STR_PAD_LEFT);
 
+// Clear session to avoid re-submission
+unset($_SESSION['reservation']);
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

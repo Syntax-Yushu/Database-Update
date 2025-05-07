@@ -29,7 +29,7 @@
     </div>
 
     <div class="container">
-        <form action="confirmed.php" method="POST">
+        <form action="SaveReservation.php" method="POST">
             <div class="content">
                 <div class="room-image">
                     <img src="images/standard room.png" alt="Standard Room">

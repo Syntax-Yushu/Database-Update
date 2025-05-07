@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 
     <div class="container">
-        <form action="confirmed2room.php" method="POST">
+        <form action="SaveReservation2room.php" method="POST">
             <div class="content">
                 <div class="room-image">
                     <img src="images/standard room.png" alt="Standard Room">
@@ -103,7 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 
     <div class="container">
-        <form action="confirmed2room.php" method="POST">
+        <form action="SaveReservation2room.php" method="POST">
             <div class="content">
                 <div class="room-image">
                     <img src="images/deluxe.png" alt="Deluxe Room">
@@ -178,13 +178,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </form> <!-- ✨ FORM ends here -->
 </div>
-    
-    <script>
-        function goToNextPage() {
-            window.location.href = "Information.php";
-        }
-    </script>
-
     <script src="StandardDeluxe.js"></script>
 
 </body>
