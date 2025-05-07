@@ -3,6 +3,18 @@ body {
     font-family: Arial, sans-serif;
 }
 
+.logo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center; 
+    padding: 10px 0;
+}
+
+.logo img {
+    width: 150px; 
+    height: auto;
+}
+
 .container {
     display: flex;
     height: 100vh;
@@ -10,7 +22,7 @@ body {
 }
 
 .sidebar {
-    width: 200px;
+    width: 200px; 
     background-color: #100020;
     color: white;
     padding: 20px;
@@ -19,23 +31,11 @@ body {
     justify-content: space-between;
 }
 
-.logo {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 10px 0;
-}
-
-.logo img {
-    width: 150px;
-    height: auto;
-}
-
 .sidebar ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    flex-grow: 1;
+    flex-grow: 1; 
 }
 
 .sidebar ul li {
@@ -47,7 +47,7 @@ body {
 .sidebar ul li img {
     width: 20px;
     margin-right: 10px;
-    filter: invert(1);
+    filter: invert(1); 
 }
 
 .sidebar ul li a {
@@ -57,7 +57,7 @@ body {
 }
 
 .logout {
-    margin-top: auto;
+    margin-top: auto; 
     padding-top: 20px;
 }
 
@@ -72,13 +72,23 @@ body {
     filter: invert(1);
 }
 
+.logout span {
+    margin-left: 10px;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh; 
+    width: 100%;
+}
+
 .main-content {
     flex: 1;
     background: url('images/admin.png') no-repeat center center/cover;
     overflow-y: auto;
     scrollbar-width: none;
     max-height: 100vh;
-    padding: 90px 20px 20px; 
+    padding: 90px 20px 20px;
 }
 
 .header {
@@ -94,14 +104,14 @@ body {
     z-index: 1000; 
 }
 
+
 .notification, .profile {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 48px;
+    width: 48px;  
     height: 48px;
-    border-radius: 50%;
-    position: relative;
+    border-radius: 50%; 
 }
 
 .notification img, .profile img {
@@ -111,18 +121,25 @@ body {
     border-radius: 50%;
 }
 
+.notification {
+    position: relative;
+    z-index: 10;
+}
+
 .notification-container {
     position: absolute;
-    top: 60px;
-    right: 10px;
-    width: 300px;
+    top: 50px;
+    right: 0;
+    width: 250px;
     background: white;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     display: none;
     flex-direction: column;
     padding: 10px;
+    z-index: 1000; 
 }
+
 
 .notification-container.active {
     display: flex;
@@ -164,4 +181,94 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.overview {
+    background: rgba(0, 0, 0, 0.5); 
+    padding: 15px;
+    border-radius: 10px;
+    color: white;
+    width: 90%;
+    margin: 20px auto;
+}
+
+.overview h2 {
+    margin: 0 0 10px 0;
+    font-size: 20px;
+}
+
+.overview-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.overview-item {
+    flex: 1;
+}
+
+.overview-item strong {
+    display: block;
+    font-size: 16px;
+}
+
+.overview-item .count {
+    font-size: 20px;
+    font-weight: bold;
+    color: #007bff; 
+}
+
+.hotel-performance {
+    background: rgba(0, 0, 0, 0.5); 
+    padding: 15px;
+    border-radius: 10px;
+    color: white;
+    width: 90%;
+    margin: 20px auto;
+}
+
+.hotel-performance h2 {
+    margin: 0 0 10px 0;
+    font-size: 20px;
+    text-align: left; 
+}
+
+.performance-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.single {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 16px;
+    gap: 4px;
+    width: 230px;
+    height: 150px;
+    background: rgba(102, 89, 70, 0.2); 
+    border: 1px solid #D0D3D9;
+    box-shadow: 0px 1px 3px rgba(16, 24, 40, 0.1), 0px 1px 2px rgba(16, 24, 40, 0.06);
+    border-radius: 8px;
+    backdrop-filter: blur(10px); 
+}
+
+.single h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.single p {
+    margin: 4px 0;
+    font-size: 14px;
+}
+
+.overview {
+    background: rgba(0, 0, 0, 0.5); 
 }

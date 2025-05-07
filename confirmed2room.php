@@ -1,17 +1,24 @@
 <?php
 // Room 1
 $roomType1 = $_POST['roomType1'] ?? '';
-$roomQty1 = $_POST['roomQty1'] ?? 0;
+$roomQty1 = $_POST['roomQty1'] ?? 1;
 
 // Room 2
 $roomType2 = $_POST['roomType2'] ?? '';
-$roomQty2 = $_POST['roomQty2'] ?? 0;
+$roomQty2 = $_POST['roomQty2'] ?? 1;
 
 $numGuests = $_POST['numGuests'] ?? '';
 $checkin = $_POST['checkinDate'] ?? '';
 $checkout = $_POST['checkoutDate'] ?? '';
-$services = (isset($_POST['services']) && is_array($_POST['services']) && count($_POST['services']) > 0)
-    ? implode(',<br>', array_map('htmlspecialchars', $_POST['services']))
+
+// Room 1 Services
+$services1 = (isset($_POST['services1']) && is_array($_POST['services1']) && count($_POST['services1']) > 0)
+    ? implode(',<br>', array_map('htmlspecialchars', $_POST['services1']))
+    : 'None';
+
+// Room 2 Services
+$services2 = (isset($_POST['services2']) && is_array($_POST['services2']) && count($_POST['services2']) > 0)
+    ? implode(',<br>', array_map('htmlspecialchars', $_POST['services2']))
     : 'None';
 
 // Calculate number of nights
@@ -48,7 +55,6 @@ if ($roomQty2 > 0) {
 }
 
 $reservationNumber = str_pad(rand(1, 99999), 5, '0', STR_PAD_LEFT);
-
 ?>
 
 <!DOCTYPE html>
@@ -112,8 +118,7 @@ $reservationNumber = str_pad(rand(1, 99999), 5, '0', STR_PAD_LEFT);
                 <p><strong>Check-out:</strong> <?php echo htmlspecialchars($checkout); ?> <strong>Time:</strong> 12:00 PM</p>
                 <p><strong>No. of Nights:</strong> <?php echo htmlspecialchars($numNights); ?></p>
                 <p><strong>No. of Guests:</strong> <?php echo htmlspecialchars($numGuests); ?></p>
-                <p><strong>Services:</strong> <?php echo $services; ?></p>
-                <h2><strong>Total:</strong> <?php echo number_format($total, 2); ?></h2>
+                <p><strong>Services:</strong> <?php echo $services1; ?></p>                
             </div>
         </div>
 
@@ -151,9 +156,13 @@ $reservationNumber = str_pad(rand(1, 99999), 5, '0', STR_PAD_LEFT);
                 <p><strong>Check-out:</strong> <?php echo htmlspecialchars($checkout); ?> <strong>Time:</strong> 12:00 PM</p>
                 <p><strong>No. of Nights:</strong> <?php echo htmlspecialchars($numNights); ?></p>
                 <p><strong>No. of Guests:</strong> <?php echo htmlspecialchars($numGuests); ?></p>
-                <p><strong>Services:</strong> <?php echo $services; ?></p>
-                <h2><strong>Total:</strong> <?php echo number_format($total, 2); ?></h2>
+                <p><strong>Services:</strong> <?php echo $services2; ?></p>                
             </div>
+        </div>
+
+    
+        <div class="total-section">
+            <p><strong>Total:</strong> <?php echo number_format($total, 2); ?></p>
         </div>
     </div>
 
@@ -162,5 +171,8 @@ $reservationNumber = str_pad(rand(1, 99999), 5, '0', STR_PAD_LEFT);
             window.location.href = "feedback.php";
         }
     </script>
+
+    <script src="confirmed2room.js"></script>
+
 </body>
 </html>
